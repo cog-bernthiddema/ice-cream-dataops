@@ -1,0 +1,30 @@
+[project]
+name = "cdf-bootcamp"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "bernthiddema", email = "162383048+bernthiddema@users.noreply.github.com" }
+]
+dependencies = [
+    "cognite-toolkit>=0.6.19",
+    "azure-identity>=1.24.0",
+    "msgraph-sdk>=1.40.0",
+    "bs4>=0.0.2",
+    "html2text>=2025.4.15",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cdf_bootcamp"]

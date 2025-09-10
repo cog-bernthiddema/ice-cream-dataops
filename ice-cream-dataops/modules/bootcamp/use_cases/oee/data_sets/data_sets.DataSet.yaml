@@ -1,0 +1,6 @@
+- externalId: {{uc_oee_ds_external_id}}
+  name: Ice Cream Factory Source Data
+  description: 
+  writeProtected: false
+  metadata:
+    origin: cognite-toolkit

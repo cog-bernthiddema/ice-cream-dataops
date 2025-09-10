@@ -1,0 +1,359 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+      "title": "ice-cream-factory-api",
+      "version": "0.1.0"
+    },
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Root",
+          "operationId": "root__get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/site": {
+        "get": {
+          "tags": [
+            "site"
+          ],
+          "summary": "Get all available sites for the Ice Cream Factory.",
+          "operationId": "function_site_get_site_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/site/csv": {
+        "get": {
+          "tags": [
+            "site"
+          ],
+          "summary": "Get all available sites for the Ice Cream Factory as a CSV file.",
+          "operationId": "function_site_csv_get_site_csv_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response"
+            }
+          }
+        }
+      },
+      "/site/{city}": {
+        "get": {
+          "tags": [
+            "site"
+          ],
+          "summary": "Get site asset and all child assets for a given city. Specify 'all' to retrieve all.",
+          "operationId": "function_site_children_get_site__city__get",
+          "parameters": [
+            {
+              "required": true,
+              "schema": {
+                "title": "City",
+                "type": "string"
+              },
+              "name": "city",
+              "in": "path"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/site/{city}/csv": {
+        "get": {
+          "tags": [
+            "site"
+          ],
+          "summary": "Get site asset and all child assets for a given city as a CSV file. Specify 'all' to retrieve all.",
+          "operationId": "function_site_children_csv_get_site__city__csv_get",
+          "parameters": [
+            {
+              "required": true,
+              "schema": {
+                "title": "City",
+                "type": "string"
+              },
+              "name": "city",
+              "in": "path"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response"
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/timeseries/entity_matching": {
+        "get": {
+          "tags": [
+            "timeseries"
+          ],
+          "summary": "Get all entity matching timeseries metadata for the Ice Cream Factory.",
+          "operationId": "function_timeseries_entity_matching_get_timeseries_entity_matching_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/timeseries/entity_matching/csv": {
+        "get": {
+          "tags": [
+            "timeseries"
+          ],
+          "summary": "Get all entity matching timeseries metadata for the Ice Cream Factory as a CSV file.",
+          "operationId": "function_timeseries_entity_matching_csv_get_timeseries_entity_matching_csv_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response"
+            }
+          }
+        }
+      },
+      "/timeseries/oee": {
+        "get": {
+          "tags": [
+            "timeseries"
+          ],
+          "summary": "Get all OEE timeseries metadata for the Ice Cream Factory.",
+          "operationId": "function_timeseries_oee_get_timeseries_oee_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/timeseries/oee/csv": {
+        "get": {
+          "tags": [
+            "timeseries"
+          ],
+          "summary": "Get all OEE timeseries metadata for the Ice Cream Factory as a CSV file.",
+          "operationId": "function_timeseries_oee_csv_get_timeseries_oee_csv_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response"
+            }
+          }
+        }
+      },
+      "/datapoints/oee": {
+        "get": {
+          "tags": [
+            "datapoints"
+          ],
+          "summary": "Get datapoints for a specified oee timeseries. Accepts Unix time and string values, 'max' and 'now'. Defaults to UTC.",
+          "operationId": "function_datapoints_oee_get_datapoints_oee_get",
+          "parameters": [
+            {
+              "required": true,
+              "schema": {
+                "title": "External Id",
+                "type": "string"
+              },
+              "name": "external_id",
+              "in": "query"
+            },
+            {
+              "required": false,
+              "schema": {
+                "title": "Start",
+                "type": "string",
+                "default": "max"
+              },
+              "name": "start",
+              "in": "query"
+            },
+            {
+              "required": false,
+              "schema": {
+                "title": "End",
+                "type": "string",
+                "default": "now"
+              },
+              "name": "end",
+              "in": "query"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/ping": {
+        "get": {
+          "summary": "Check that the service is operational",
+          "description": "Sanity check - this will let the user know that the service is operational.\nIt is also used as part of the HEALTHCHECK. Docker uses curl to check that the API service is still running,\nby exercising this endpoint.",
+          "operationId": "pong_ping_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/metrics": {
+        "get": {
+          "summary": "Metrics",
+          "description": "Endpoint that serves Prometheus metrics.",
+          "operationId": "metrics_metrics_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "HTTPValidationError": {
+          "title": "HTTPValidationError",
+          "type": "object",
+          "properties": {
+            "detail": {
+              "title": "Detail",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          }
+        },
+        "ValidationError": {
+          "title": "ValidationError",
+          "required": [
+            "loc",
+            "msg",
+            "type"
+          ],
+          "type": "object",
+          "properties": {
+            "loc": {
+              "title": "Location",
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              }
+            },
+            "msg": {
+              "title": "Message",
+              "type": "string"
+            },
+            "type": {
+              "title": "Error Type",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
